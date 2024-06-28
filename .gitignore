@@ -21,3 +21,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Node.js dependencies
+node_modules/
+
+# Environment variables file
+.env
