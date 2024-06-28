@@ -1,9 +1,19 @@
 import React from 'react';
-import { Container, Typography, Box, Grid, Paper, Avatar, Button, Card, CardMedia, CardContent, CardActions } from '@mui/material';
+import {
+  Container,
+  Typography,
+  Box,
+  Grid,
+  Card,
+  CardMedia,
+  CardContent,
+  CardActions,
+  Button
+} from '@mui/material';
 import { styled } from '@mui/system';
 import { Link } from 'react-router-dom';
-import heritageSiteImage from '../assets/heritageSite.jpeg'; // Example heritage site image
-import culturalPracticeImage from '../assets/culturalPractice.jpeg'; // Example cultural practice image
+import heritageSiteImage from '../assets/heritageSite.jpeg'; 
+import culturalPracticeImage from '../assets/culturalPractice.jpeg';
 
 const BackgroundBox = styled(Box)({
   backgroundImage: 'url(https://source.unsplash.com/1600x900/?heritage)',
