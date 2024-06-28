@@ -8,6 +8,9 @@ import Create from './pages/Create';
 import Community from './pages/Community';
 import Resources from './pages/Resources';
 import About from './pages/About';
+import VirtualTour from './pages/VirtualTour'; // New page
+import ImageRecognition from './pages/ImageRecognition'; // New page
+import CulturalPractices from './pages/CulturalPractices'; // New page
 
 const App = () => {
   return (
@@ -21,6 +24,9 @@ const App = () => {
         <Route path="/community" element={<Community />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/about" element={<About />} />
+        <Route path="/virtual-tour" element={<VirtualTour />} /> {/* New route */}
+        <Route path="/image-recognition" element={<ImageRecognition />} /> {/* New route */}
+        <Route path="/cultural-practices" element={<CulturalPractices />} /> {/* New route */}
       </Routes>
     </Router>
   );
