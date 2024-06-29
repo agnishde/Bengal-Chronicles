@@ -23,7 +23,7 @@ const Home = () => {
       <Container>
         <Box sx={{ textAlign: 'center', mt: 4, mb: 4 }}>
           <Typography variant="h2" component="h1" gutterBottom>
-            Welcome to Bengali Heritage Online
+            Welcome to Bengali Chronicles
           </Typography>
           <Typography variant="h5" component="h2" gutterBottom>
             Explore the rich cultural heritage of Bengal

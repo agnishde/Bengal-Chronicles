@@ -1,28 +1,26 @@
 // src/pages/ImageRecognition.js
-import React, { useState, useRef } from 'react';
+
+import React, { useState } from 'react';
 import * as mobilenet from '@tensorflow-models/mobilenet';
 import '@tensorflow/tfjs';
 
 const ImageRecognition = () => {
   const [image, setImage] = useState(null);
   const [predictions, setPredictions] = useState([]);
-  const imageRef = useRef();
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        setImage(reader.result);
-        setPredictions([]);  // Clear previous predictions
-      };
-      reader.readAsDataURL(file);
-    }
+    const reader = new FileReader();
+    reader.onload = () => {
+      setImage(reader.result);
+    };
+    reader.readAsDataURL(file);
   };
 
   const identifyImage = async () => {
+    const img = document.getElementById('inputImage');
     const model = await mobilenet.load();
-    const predictions = await model.classify(imageRef.current);
+    const predictions = await model.classify(img);
     setPredictions(predictions);
   };
 
@@ -30,19 +28,15 @@ const ImageRecognition = () => {
     <div>
       <h2>Image Recognition</h2>
       <input type="file" accept="image/*" onChange={handleImageChange} />
-      {image && (
-        <div>
-          <img src={image} alt="Selected" ref={imageRef} width="400" />
-          <button onClick={identifyImage}>Identify Image</button>
-        </div>
-      )}
+      {image && <img id="inputImage" src={image} alt="Uploaded" width="400" />}
+      <button onClick={identifyImage}>Identify Image</button>
       {predictions.length > 0 && (
         <div>
           <h3>Predictions:</h3>
           <ul>
             {predictions.map((prediction, index) => (
               <li key={index}>
-                {prediction.className}: {(prediction.probability * 100).toFixed(2)}%
+                {prediction.className}: {Math.round(prediction.probability * 100)}%
               </li>
             ))}
           </ul>
