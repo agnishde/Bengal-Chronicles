@@ -1,80 +1,98 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Container, Typography, Button, Grid, Paper } from '@mui/material';
-import { styled } from '@mui/system';
-import heritageImage from '../assets/heritage.jpg'; // Updated path
 
-const HeroSection = styled('div')({
-  backgroundImage: `url(${heritageImage})`,
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
-  height: '80vh',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  color: '#fff',
-  textAlign: 'center',
-  padding: '20px',
-  boxShadow: 'inset 0 0 0 1000px rgba(0,0,0,0.3)',
-});
+import React from 'react';
+import { Container, Typography, Box, Grid, Button } from '@mui/material';
+import { Link } from 'react-router-dom';
+import '../index.css'; // Assuming this file contains some basic styling
 
 const Home = () => {
   return (
-    <Container>
-      <HeroSection>
-        <div>
+    <Box
+      sx={{
+        backgroundImage: `url('/heritage.jpg')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        height: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        color: '#000', // Changed to black
+        textShadow: '2px 2px 4px rgba(255, 255, 255, 0.6)', // Changed text shadow to white
+      }}
+    >
+      <Container>
+        <Box sx={{ textAlign: 'center', mt: 4, mb: 4 }}>
           <Typography variant="h2" component="h1" gutterBottom>
             Welcome to Bengali Heritage Online
           </Typography>
-          <Typography variant="h5" component="p" gutterBottom>
+          <Typography variant="h5" component="h2" gutterBottom>
             Explore the rich cultural heritage of Bengal
           </Typography>
-          <Button
-            variant="contained"
-            color="primary"
-            size="large"
-            component={Link}
+          <Button 
+            variant="contained" 
+            color="primary" 
+            size="large" 
+            component={Link} 
             to="/explore"
-            sx={{ mt: 2 }}
+            sx={{ mt: 2, mb: 4 }}
           >
             Explore Now
           </Button>
-        </div>
-      </HeroSection>
-      <Grid container spacing={3} sx={{ mt: 4 }}>
-        <Grid item xs={12} md={4}>
-          <Paper elevation={3} sx={{ padding: 2, textAlign: 'center' }}>
-            <Typography variant="h6" component="h2">
-              Virtual Tours
-            </Typography>
-            <Typography>
-              Experience 360-degree views of historical sites.
-            </Typography>
-          </Paper>
+        </Box>
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={4}>
+            <Box sx={{ textAlign: 'center' }}>
+              <Button 
+                variant="outlined" 
+                size="large" 
+                component={Link} 
+                to="/explore"
+                sx={{ mt: 2, mb: 2, color: '#000', borderColor: '#000' }}
+              >
+                Virtual Tours
+              </Button>
+              <Typography variant="body1">
+                Experience 360-degree views of historical sites.
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Box sx={{ textAlign: 'center' }}>
+              <Button 
+                variant="outlined" 
+                size="large" 
+                component={Link} 
+                to="/image-recognition"
+                sx={{ mt: 2, mb: 2, color: '#000', borderColor: '#000' }}
+              >
+                Image Recognition
+              </Button>
+              <Typography variant="body1">
+                Recognize and learn about monuments with AI.
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Box sx={{ textAlign: 'center' }}>
+              <Button 
+                variant="outlined" 
+                size="large" 
+                component={Link} 
+                to="/historical-timeline"
+                sx={{ mt: 2, mb: 2, color: '#000', borderColor: '#000' }}
+              >
+                Historical Timeline
+              </Button>
+              <Typography variant="body1">
+                Explore key events in Bengali history.
+              </Typography>
+            </Box>
+          </Grid>
         </Grid>
-        <Grid item xs={12} md={4}>
-          <Paper elevation={3} sx={{ padding: 2, textAlign: 'center' }}>
-            <Typography variant="h6" component="h2">
-              Image Recognition
-            </Typography>
-            <Typography>
-              Recognize and learn about monuments with AI.
-            </Typography>
-          </Paper>
-        </Grid>
-        <Grid item xs={12} md={4}>
-          <Paper elevation={3} sx={{ padding: 2, textAlign: 'center' }}>
-            <Typography variant="h6" component="h2">
-              Historical Timeline
-            </Typography>
-            <Typography>
-              Explore key events in Bengali history.
-            </Typography>
-          </Paper>
-        </Grid>
-      </Grid>
-    </Container>
+      </Container>
+    </Box>
   );
 };
 
 export default Home;
+
