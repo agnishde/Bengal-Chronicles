@@ -5,6 +5,7 @@ const Community = () => {
     <div>
       <h1>Join the Community</h1>
       {/* Add community engagement features */}
+      
     </div>
   );
 };
