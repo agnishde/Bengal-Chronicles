@@ -8,7 +8,6 @@ import CulturalPractices from './pages/CulturalPractices';
 import ImageRecognition from './pages/ImageRecognition';
 import Resources from './pages/Resources';
 import VirtualTour from './pages/VirtualTour';
-import HistoricalTimeline from './pages/HistoricalTimeline';
 
 const App = () => {
   return (
@@ -21,12 +20,10 @@ const App = () => {
         <Route path="/image-recognition" element={<ImageRecognition />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/virtual-tour/:site" element={<VirtualTour />} />
-        <Route path="/historical-timeline" element={<HistoricalTimeline />} />
       </Routes>
     </Router>
   );
 };
 
 export default App;
-
 

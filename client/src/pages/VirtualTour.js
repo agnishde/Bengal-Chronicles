@@ -8,7 +8,7 @@ const VirtualTour = () => {
 
   const mapSources = {
     'victoria-memorial': 'https://www.google.com/maps/embed?pb=!4v1719645119068!6m8!1m7!1ssaR3roR-in-rHkWcJHq9aA!2m2!1d22.54390153658023!2d88.34209902273892!3f9.351444562899815!4f6.257074325899609!5f0.7820865974627469',
-    'belur-math': 'https://www.google.com/maps/embed?pb=!4v1719645119068!6m8!1m7!1sbelurMathExample!2m2!1d22.5443213!2d88.3482135!3f10.241575!4f6.456235!5f0.7820865974627469',
+    'belur-math': 'https://www.google.com/maps/embed?pb=!4v1719692269939!6m8!1m7!1sCAoSLEFGMVFpcE8zTFo0OFpSVHdhQ3ZyWXRJS3pNc1JkSW5SWExfYk1SREpiZzVn!2m2!1d22.6321853!2d88.3558912!3f339.88742!4f0.11257000000000517!5f0.7820865974627469',
     'dakshineswar-kali-temple': 'https://www.google.com/maps/embed?pb=!4v1719645119068!6m8!1m7!1sdakshineswarExample!2m2!1d22.5443213!2d88.3482135!3f10.241575!4f6.456235!5f0.7820865974627469'
     // Add more sources as needed
   };
