@@ -1,18 +1,12 @@
 import React from 'react';
-import { Container, Typography, Box } from '@mui/material';
+import VictoriaMemorialTour from '../components/VictoriaMemorialTour';
 
 const VirtualTour = () => {
   return (
-    <Container>
-      <Box sx={{ mt: 4 }}>
-        <Typography variant="h4" component="h2" gutterBottom>
-          Virtual Tour
-        </Typography>
-        <Typography variant="body1">
-          This is where the virtual tour content will go.
-        </Typography>
-      </Box>
-    </Container>
+    <div>
+      <h1>Virtual Tour</h1>
+      <VictoriaMemorialTour />
+    </div>
   );
 };
 
