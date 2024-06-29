@@ -1,19 +1,13 @@
 import React from 'react';
-import {
-  Container,
-  Typography,
-  Box,
-  Grid,
-  Card,
-  CardMedia,
-  CardContent,
-  CardActions,
-  Button
-} from '@mui/material';
+import { Container, Typography, Box, Grid, Card, CardMedia, CardContent, CardActions, Button } from '@mui/material';
 import { styled } from '@mui/system';
 import { Link } from 'react-router-dom';
-import heritageSiteImage from '../assets/heritageSite.jpeg'; 
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, useGLTF } from '@react-three/drei';
+import heritageSiteImage from '../assets/heritageSite.jpeg';
 import culturalPracticeImage from '../assets/culturalPractice.jpeg';
+import victoriaMemorialImage from '../assets/victoriaMemorial.jpeg';
+import belurMathImage from '../assets/belurMath.jpg';
 
 const BackgroundBox = styled(Box)({
   backgroundImage: 'url(https://source.unsplash.com/1600x900/?heritage)',
@@ -28,6 +22,11 @@ const BackgroundBox = styled(Box)({
   padding: '20px',
   boxShadow: 'inset 0 0 0 1000px rgba(0,0,0,0.3)',
 });
+
+function Model({ modelPath }) {
+  const { scene } = useGLTF(modelPath);
+  return <primitive object={scene} scale={0.5} />;
+}
 
 const Explore = () => {
   return (
@@ -47,22 +46,49 @@ const Explore = () => {
         <Grid container spacing={3} sx={{ mb: 4 }}>
           <Grid item xs={12} md={6}>
             <Card>
-              <CardMedia
-                component="img"
-                height="200"
-                image={heritageSiteImage}
-                alt="Heritage Site"
-              />
+              <CardMedia component="div">
+                <Canvas style={{ height: '200px' }}>
+                  <ambientLight />
+                  <pointLight position={[10, 10, 10]} />
+                  <OrbitControls />
+                  <Model modelPath="/path/to/victoriaMemorialModel.gltf" />
+                </Canvas>
+              </CardMedia>
               <CardContent>
                 <Typography variant="h5" component="h2">
-                  Heritage Site Name
+                  Victoria Memorial
                 </Typography>
                 <Typography variant="body2" color="textSecondary">
-                  A brief description of the heritage site. Learn about its historical significance and architectural beauty.
+                  A magnificent marble building in Kolkata, dedicated to the memory of Queen Victoria, showcasing a blend of British and Mughal architectural styles.
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button size="small" color="primary" component={Link} to="/virtual-tour">
+                <Button size="small" color="primary" component={Link} to="/virtual-tour/victoria-memorial">
+                  Start Virtual Tour
+                </Button>
+              </CardActions>
+            </Card>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Card>
+              <CardMedia component="div">
+                <Canvas style={{ height: '200px' }}>
+                  <ambientLight />
+                  <pointLight position={[10, 10, 10]} />
+                  <OrbitControls />
+                  <Model modelPath="/path/to/belurMathModel.gltf" />
+                </Canvas>
+              </CardMedia>
+              <CardContent>
+                <Typography variant="h5" component="h2">
+                  Belur Math
+                </Typography>
+                <Typography variant="body2" color="textSecondary">
+                  The headquarters of the Ramakrishna Mission, founded by Swami Vivekananda, blending Hindu, Christian, and Islamic motifs as a symbol of unity.
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small" color="primary" component={Link} to="/virtual-tour/belur-math">
                   Start Virtual Tour
                 </Button>
               </CardActions>
@@ -121,3 +147,5 @@ const Explore = () => {
 };
 
 export default Explore;
+
+
