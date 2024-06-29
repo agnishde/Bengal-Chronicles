@@ -1,13 +1,25 @@
+// src/pages/Explore.js
+
 import React from 'react';
-import { Container, Typography, Box, Grid, Card, CardMedia, CardContent, CardActions, Button } from '@mui/material';
+import {
+  Container,
+  Typography,
+  Box,
+  Grid,
+  Card,
+  CardMedia,
+  CardContent,
+  CardActions,
+  Button
+} from '@mui/material';
 import { styled } from '@mui/system';
 import { Link } from 'react-router-dom';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, useGLTF } from '@react-three/drei';
-import heritageSiteImage from '../assets/heritageSite.jpeg';
-import culturalPracticeImage from '../assets/culturalPractice.jpeg';
-import victoriaMemorialImage from '../assets/victoriaMemorial.jpeg';
-import belurMathImage from '../assets/belurMath.jpg';
+import heritageSiteImage1 from '../assets/heritageSite1.jpeg';
+import heritageSiteImage2 from '../assets/heritageSite2.jpeg';
+import heritageSiteImage3 from '../assets/heritageSite3.jpeg';
+import culturalPracticeImage1 from '../assets/culturalPractice1.jpeg';
+import culturalPracticeImage2 from '../assets/culturalPractice2.jpeg';
+import Simple3DScene from '../components/Simple3DScene';
 
 const BackgroundBox = styled(Box)({
   backgroundImage: 'url(https://source.unsplash.com/1600x900/?heritage)',
@@ -22,11 +34,6 @@ const BackgroundBox = styled(Box)({
   padding: '20px',
   boxShadow: 'inset 0 0 0 1000px rgba(0,0,0,0.3)',
 });
-
-function Model({ modelPath }) {
-  const { scene } = useGLTF(modelPath);
-  return <primitive object={scene} scale={0.5} />;
-}
 
 const Explore = () => {
   return (
@@ -44,22 +51,40 @@ const Explore = () => {
           Take immersive virtual tours of historical sites across Bengal. Explore these sites in 360 degrees and experience the rich history and architecture.
         </Typography>
         <Grid container spacing={3} sx={{ mb: 4 }}>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={4}>
             <Card>
-              <CardMedia component="div">
-                <Canvas style={{ height: '200px' }}>
-                  <ambientLight />
-                  <pointLight position={[10, 10, 10]} />
-                  <OrbitControls />
-                  <Model modelPath="/path/to/victoriaMemorialModel.gltf" />
-                </Canvas>
+              <CardMedia>
+                <Simple3DScene />
               </CardMedia>
+              <CardContent>
+                <Typography variant="h5" component="h2">
+                  3D Model Example
+                </Typography>
+                <Typography variant="body2" color="textSecondary">
+                  A simple 3D model rendered using Three.js and react-three-fiber.
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small" color="primary" component={Link} to="/virtual-tour">
+                  Start Virtual Tour
+                </Button>
+              </CardActions>
+            </Card>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Card>
+              <CardMedia
+                component="img"
+                height="200"
+                image={heritageSiteImage1}
+                alt="Victoria Memorial"
+              />
               <CardContent>
                 <Typography variant="h5" component="h2">
                   Victoria Memorial
                 </Typography>
                 <Typography variant="body2" color="textSecondary">
-                  A magnificent marble building in Kolkata, dedicated to the memory of Queen Victoria, showcasing a blend of British and Mughal architectural styles.
+                  A grand marble building in Kolkata, dedicated to the memory of Queen Victoria, and now a museum and tourist destination.
                 </Typography>
               </CardContent>
               <CardActions>
@@ -69,22 +94,20 @@ const Explore = () => {
               </CardActions>
             </Card>
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={4}>
             <Card>
-              <CardMedia component="div">
-                <Canvas style={{ height: '200px' }}>
-                  <ambientLight />
-                  <pointLight position={[10, 10, 10]} />
-                  <OrbitControls />
-                  <Model modelPath="/path/to/belurMathModel.gltf" />
-                </Canvas>
-              </CardMedia>
+              <CardMedia
+                component="img"
+                height="200"
+                image={heritageSiteImage2}
+                alt="Belur Math"
+              />
               <CardContent>
                 <Typography variant="h5" component="h2">
                   Belur Math
                 </Typography>
                 <Typography variant="body2" color="textSecondary">
-                  The headquarters of the Ramakrishna Mission, founded by Swami Vivekananda, blending Hindu, Christian, and Islamic motifs as a symbol of unity.
+                  The headquarters of the Ramakrishna Math and Mission, located on the west bank of the Hooghly River, near Kolkata.
                 </Typography>
               </CardContent>
               <CardActions>
@@ -94,7 +117,29 @@ const Explore = () => {
               </CardActions>
             </Card>
           </Grid>
-          {/* Add more heritage site cards as needed */}
+          <Grid item xs={12} md={4}>
+            <Card>
+              <CardMedia
+                component="img"
+                height="200"
+                image={heritageSiteImage3}
+                alt="Dakshineswar Kali Temple"
+              />
+              <CardContent>
+                <Typography variant="h5" component="h2">
+                  Dakshineswar Kali Temple
+                </Typography>
+                <Typography variant="body2" color="textSecondary">
+                  A Hindu temple located in Dakshineswar near Kolkata, West Bengal, India. The temple is dedicated to Bhavatarini, an aspect of Kali.
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small" color="primary" component={Link} to="/virtual-tour/dakshineswar-kali-temple">
+                  Start Virtual Tour
+                </Button>
+              </CardActions>
+            </Card>
+          </Grid>
         </Grid>
       </Box>
       <Box sx={{ mt: 4, mb: 4 }}>
@@ -121,25 +166,47 @@ const Explore = () => {
               <CardMedia
                 component="img"
                 height="200"
-                image={culturalPracticeImage}
-                alt="Cultural Practice"
+                image={culturalPracticeImage1}
+                alt="Baul Music"
               />
               <CardContent>
                 <Typography variant="h5" component="h2">
-                  Cultural Practice Name
+                  Baul Music
                 </Typography>
                 <Typography variant="body2" color="textSecondary">
-                  A brief description of the cultural practice. Explore its history, significance, and how it is practiced today.
+                  Baul music is a unique genre of folk music from Bengal, characterized by its spiritual and heartfelt lyrics.
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button size="small" color="primary" component={Link} to="/cultural-practices">
+                <Button size="small" color="primary" component={Link} to="/cultural-practices/baul-music">
                   Learn More
                 </Button>
               </CardActions>
             </Card>
           </Grid>
-          {/* Add more cultural practice cards as needed */}
+          <Grid item xs={12} md={6}>
+            <Card>
+              <CardMedia
+                component="img"
+                height="200"
+                image={culturalPracticeImage2}
+                alt="Terracotta Art"
+              />
+              <CardContent>
+                <Typography variant="h5" component="h2">
+                  Terracotta Art
+                </Typography>
+                <Typography variant="body2" color="textSecondary">
+                  The terracotta temples of Bishnupur are famous for their intricate carvings and unique architectural style.
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small" color="primary" component={Link} to="/cultural-practices/terracotta-art">
+                  Learn More
+                </Button>
+              </CardActions>
+            </Card>
+          </Grid>
         </Grid>
       </Box>
     </Container>
@@ -147,5 +214,8 @@ const Explore = () => {
 };
 
 export default Explore;
+
+
+
 
 
