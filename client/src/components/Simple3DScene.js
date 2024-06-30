@@ -1,4 +1,3 @@
-// src/components/Simple3DScene.js
 
 import React from 'react';
 import { Canvas } from '@react-three/fiber';

@@ -2,7 +2,7 @@
 import React from 'react';
 import { Container, Typography, Box, Grid, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
-import '../index.css'; // Assuming this file contains some basic styling
+import '../index.css'; 
 
 const Home = () => {
   return (
@@ -16,8 +16,8 @@ const Home = () => {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        color: '#000', // Changed to black
-        textShadow: '2px 2px 4px rgba(255, 255, 255, 0.6)', // Changed text shadow to white
+        color: '#000', 
+        textShadow: '2px 2px 4px rgba(255, 255, 255, 0.6)', 
       }}
     >
       <Container>

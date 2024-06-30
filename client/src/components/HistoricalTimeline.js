@@ -29,7 +29,7 @@ const HistoricalTimeline = () => {
       description: 'Belur Math is the headquarters of the Ramakrishna Math and Mission, founded by Swami Vivekananda.',
       icon: <FaLandmark />,
     },
-    // Add more events as needed
+    
   ];
 
   return (

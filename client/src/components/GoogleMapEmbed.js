@@ -1,4 +1,3 @@
-// src/components/GoogleMapEmbed.js
 import React from 'react';
 
 const GoogleMapEmbed = ({ src }) => {

@@ -1,4 +1,3 @@
-// src/pages/ImageRecognition.js
 
 import React, { useState } from 'react';
 import * as mobilenet from '@tensorflow-models/mobilenet';
@@ -47,4 +46,3 @@ const ImageRecognition = () => {
 };
 
 export default ImageRecognition;
-
